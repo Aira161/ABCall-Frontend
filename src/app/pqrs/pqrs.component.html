@@ -10,29 +10,25 @@
       text-align: center;
       padding: 20px 0;
     }
-    .header .logo {
+
+    .logo {
       font-size: 36px;
       font-weight: bold;
+      text-align: left;
     }
-    .header .slogan {
-      font-size: 18px;
-      font-style: italic;
-      margin-top: 10px;
+    .container {
+      max-width: none; /* Allows the container to extend full width */
     }
+
+
   </style>
 </head>
 <body>
 <header class="header">
-  <div class="container d-flex justify-content-between align-items-center">
+  <div class="container">
     <div class="logo">ABCall</div>
   </div>
 </header>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 
 <div class="container align-items-center">
   <div class="row align-items-center">
@@ -41,6 +37,7 @@
       <div class="row">
 
         <div class="my-2 row">
+          <p><br></p>
           <h1 class="text-center">Registra tu PQRs</h1>
         </div>
 
@@ -113,7 +110,7 @@
               Debe ingresar un peticion para registrarse
             </div>
             <div class="alert alert-danger my-3" *ngIf="pqrsForm.get('peticion')?.hasError('maxlength')">
-              El peticion no debe exceder los 80 caracteres
+              El peticion no debe exceder los 256 caracteres
             </div>
 
           </div>
