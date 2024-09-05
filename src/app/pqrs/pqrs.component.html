@@ -1,0 +1,133 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABCall</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .header {
+      background-color: #343a40;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .header .logo {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .header .slogan {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="logo">ABCall</div>
+  </div>
+</header>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<div class="container align-items-center">
+  <div class="row align-items-center">
+
+    <div class="col-xs-10 col-lg-5 container">
+      <div class="row">
+
+        <div class="my-2 row">
+          <h1 class="text-center">Registra tu PQRs</h1>
+        </div>
+
+        <form [formGroup]="pqrsForm" (ngSubmit)="registrarPQRS()">
+
+          <div class="form-group">
+            <div class="mb-3 row">
+              <label for="nombre" class="col-lg-3 col-form-label">Nombre Completo</label>
+              <div class="col-lg-9  ">
+                <input formControlName="nombre" type="text" class="form-control" placeholder="Digite su nombre completo">
+              </div>
+            </div>
+            <div class="alert alert-danger my-3"
+              *ngIf="pqrsForm.get('nombre')?.hasError('required') && pqrsForm.get('nombre')?.touched">
+              Debe ingresar un nombre para registrarse
+            </div>
+            <div class="alert alert-danger my-3" *ngIf="pqrsForm.get('nombre')?.hasError('maxlength')">
+              El nombre no debe exceder los 80 caracteres
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <div class="mb-3 row">
+              <label for="email" class="col-lg-3 col-form-label">Correo</label>
+              <div class="col-lg-9  ">
+                <input formControlName="email" type="text" class="form-control" placeholder="ejemplo&#64;email.com">
+              </div>
+            </div>
+            <div class="alert alert-danger my-3"
+              *ngIf="pqrsForm.get('email')?.hasError('required') && pqrsForm.get('email')?.touched">
+              Debe ingresar un correo para registrarse
+            </div>
+            <div class="alert alert-danger my-3" *ngIf="pqrsForm.get('email')?.hasError('email')">
+              El correo debe ser válido: ejemplo&#64;email.com
+            </div>
+            <div class="alert alert-danger my-3" *ngIf="pqrsForm.get('email')?.hasError('maxLength')">
+              El correo debe ser menor a 80 caracteres
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <div class="mb-3 row">
+ 
+              <label for="asunto" class="col-lg-3 col-form-label">Asunto</label>
+              <div class="col-lg-9  ">
+                <input formControlName="asunto" type="text" class="form-control" placeholder="Asunto de su solicitud">
+              </div>
+            </div>
+            <div class="alert alert-danger my-3"
+              *ngIf="pqrsForm.get('asunto')?.hasError('required') && pqrsForm.get('asunto')?.touched">
+              Debe ingresar un asunto para registrarse
+            </div>
+            <div class="alert alert-danger my-3" *ngIf="pqrsForm.get('asunto')?.hasError('maxlength')">
+              El asunto no debe exceder los 80 caracteres
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <div class="mb-3 row">
+              <label for="peticion" class="col-lg-3 col-form-label">Petición</label>
+              <div class="col-lg-9  ">
+                <textarea id="peticion" formControlName="peticion" class="form-control" placeholder="Escriba acá su solicitud" rows="4"></textarea>
+              </div>
+            </div>
+            <div class="alert alert-danger my-3"
+              *ngIf="pqrsForm.get('peticion')?.hasError('required') && pqrsForm.get('peticion')?.touched">
+              Debe ingresar un peticion para registrarse
+            </div>
+            <div class="alert alert-danger my-3" *ngIf="pqrsForm.get('peticion')?.hasError('maxlength')">
+              El peticion no debe exceder los 80 caracteres
+            </div>
+
+          </div>
+
+        
+
+          <div class="col-12 text-center mt-3 ">
+            <button type="submit" class="btn col-8 header"
+              [disabled]="!pqrsForm.valid">Registrarse</button>
+          </div>
+          
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
