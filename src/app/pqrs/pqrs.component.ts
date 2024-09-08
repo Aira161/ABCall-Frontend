@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PqrsService } from './pqrs.service';
+import { PQRS } from './pqrs';
 
 @Component({
   selector: 'app-pqrs',
@@ -33,7 +34,9 @@ export class PqrsComponent implements OnInit {
   ngOnInit() {
     
   }
-  registrarPQRS(){
+  registrarPQRS(pqr: PQRS){
+    this.pqrsService.crearPQR(pqr)
+    .subscribe(response =>  console.log('PQR enviado:', response))
 
   }
 

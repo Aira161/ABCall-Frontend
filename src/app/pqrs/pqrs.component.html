@@ -41,7 +41,7 @@
           <h1 class="text-center">Registra tu PQRs</h1>
         </div>
 
-        <form [formGroup]="pqrsForm" (ngSubmit)="registrarPQRS()">
+        <form [formGroup]="pqrsForm" (ngSubmit)="registrarPQRS(pqrsForm.value)">
 
           <div class="form-group">
             <div class="mb-3 row">
