@@ -35,9 +35,22 @@ export class PqrsComponent implements OnInit {
     
   }
   registrarPQRS(pqr: PQRS){
-    this.pqrsService.crearPQR(pqr)
-    .subscribe(response =>  console.log('PQR enviado:', response))
-
+    this.pqrsService.crearPQR(pqr).subscribe(
+      (response: any) => {
+        console.log('PQR enviado:', response);
+        
+        // Assuming the response contains the created PQR ID
+        const pqrId = response.id;
+        console.log("THE PQR ID IS: "+pqrId);
+        
+        // Navigate to the new route "sent/{id}"
+        this.router.navigate(['/sent', pqrId]);
+      },
+      (error) => {
+        console.error('Error al enviar el PQR:', error);
+        // Optionally, you can show an error message to the user
+      }
+    );
   }
 
 }

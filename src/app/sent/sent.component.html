@@ -1,0 +1,50 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABCall</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <style>
+    .header {
+      background-color: #343a40;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: left;
+    }
+    .container {
+      max-width: none; /* Allows the container to extend full width */
+    }
+  </style>
+</head>
+<body>
+  <div class="container align-items-center">
+    <div class="row align-items-center">
+      <div class="col-xs-10 col-lg-5 container">
+        <div class="row">
+          <div class="my-2 row">
+            <p><br /></p>
+            <h1 class="text-center">{{ message }}</h1>
+          </div>
+
+          <div class="col-12 text-center mt-3">
+            <button
+              type="submit"
+              class="btn col-8 header"
+              (click)="refreshStatus()"
+            >
+              Refrescar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

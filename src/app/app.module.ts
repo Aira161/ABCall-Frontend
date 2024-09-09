@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PqrsModule } from './pqrs/pqrs.module';
+import { SentComponent } from './sent/sent.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SentComponent
   ],
   imports: [
     BrowserModule,
