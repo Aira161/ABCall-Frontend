@@ -32,6 +32,8 @@ export class PqrsComponent implements OnInit {
   }
   
   ngOnInit() {
+    console.log('esta en pqrscomponent');
+    
     
   }
   registrarPQRS(pqr: PQRS){
